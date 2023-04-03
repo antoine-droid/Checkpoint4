@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Mohave:ital,wght@0,300;0,400;0,500;1,300;1,400;1,600&display=swap');
+
+@import "variables";
+
+:root {
+    --toastify-color-success: #4ee82f;
+    --toastify-color-warning: #e6aa1e;
+    --toastify-color-error: #d80d0d;
+    --toastify-color-info: #2c5bf6;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+#root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+body {
+    font-family: $text-font, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "Roboto", "Oxygen", "Ubuntu";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100%;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #DACF8F ;
+    padding-top: 60px;
+}
+
+a {
+    display: inline-block;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+

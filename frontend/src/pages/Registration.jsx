@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useRegistrationContext } from "../contexts/RegistrationContext";
 import { toast } from "react-toastify";
 import instanceAxios from "../services/instanceAxios";
@@ -8,12 +8,21 @@ import Password from '../components/Password';
 import Email from '../components/Email';
 
 function Registration() {
+    const[response, setResponse]=  useState(null);
+    
 const { email,
       setEmail,
       password,
       setPassword,
       name, 
       setName }= useRegistrationContext();
+
+      const data = {email,
+      setEmail,
+      password,
+      setPassword,
+      name, 
+      setName}
 
  const handleRegistration = async (event) => {
     event.preventDefault();
@@ -29,7 +38,8 @@ const { email,
   };
 
   return (
-    <div className={styles["registration-page"]}>  
+    <div className={styles["registration-page-container"]}> 
+    <div className={styles["registration-page"]}>
         <h1 className={styles["registration-title"]}>Registration</h1>
         <form className={styles["registration-forms"]} onSubmit={handleRegistration}>
           <Name setName={setName} name={name} />
@@ -42,8 +52,9 @@ const { email,
           type="button"
           onClick={handleRegistration}
         >
-          SIGN UP
+          REGISTER
         </button>
+        </div>
       </div>
       </div>
   )

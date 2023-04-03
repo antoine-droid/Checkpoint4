@@ -1,1 +1,56 @@
 @import "variables";
+
+
+.home-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.home-title {
+    padding-top: 5.5rem;;
+    font-size: 5rem;
+    background-image: url('https://image.lexica.art/full_jpg/cdbba7f9-71fd-4904-b82c-9a5a9b0180ed');
+    background-size: cover;
+    color: #efd76b;
+  height:35rem;
+  width: 100%;
+
+}
+
+.home-about {
+    margin-top: 2rem;
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+.home-text {
+    margin: 1rem;
+    max-width: 65ch;
+    text-align: center; 
+    font-size: 1.5rem;
+    margin-bottom:4rem
+}
+@media screen and (max-width: 500px) {
+
+.home-title {
+        padding-top: 3rem;
+        
+        font-size: 3rem;
+        background-image: url('https://image.lexica.art/full_jpg/cdbba7f9-71fd-4904-b82c-9a5a9b0180ed');
+        background-size: cover;
+        color: #efd76b;
+        height: 25rem;
+        width: 100%;
+
+    }
+
+
+
+}
+
+

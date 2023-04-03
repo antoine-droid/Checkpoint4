@@ -32,13 +32,13 @@ const [toggleMenu, setToggleMenu] = useState(false)
     {(toggleMenu || screenWidth > 500) && (
        <ul className={styles["list-uls"]}>
          <li className={styles["li-list"]}>
+        <NavLink  className={styles["menu-list"]} to="/">Home</NavLink>
+      </li>
+         <li className={styles["li-list"]}>
         <NavLink className={styles["menu-list"]} to="/registration">Registration</NavLink>
       </li>
          <li className={styles["li-list"]}>
         <NavLink className={styles["menu-list"]} to="/connexion">Connexion</NavLink>
-      </li>
-      <li className={styles["li-list"]}>
-        <NavLink  className={styles["menu-list"]} to="/">Home</NavLink>
       </li>
       <li className={styles["li-list"]}>
         <NavLink className={styles["menu-list"]} to="/familly">Royal family</NavLink>

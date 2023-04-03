@@ -19,8 +19,8 @@ const rolesCheck = require("./middleware/rolesCheck.js");
 router.post("/login", login);
 router.get("/logout", logout);
 
-router.get("/", auth, rolesCheck("admin"), browse);
-router.get("/:id", auth, rolesCheck("admin"), getOne);
+router.get("/admin", auth, rolesCheck("admin"), browse);
+router.get("/profile", auth, rolesCheck("user"), getOne);
 router.post("/registration", createOne);
 
 router.put("/user/:id", auth, updateUser);

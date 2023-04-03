@@ -4,7 +4,7 @@ const authorization = (req, res, next) => {
   try {
     const token = req.cookies.auth_token;
 
-    if (!token) throw new Error();
+    if (!token) throw new Error("token missing");
 
     const data = decodeJWT(token);
 
@@ -13,8 +13,8 @@ const authorization = (req, res, next) => {
     req.roles = data.roles;
 
     return next();
-  } catch (e) {
-    res.sendStatus(401);
+  } catch (e) {console.log(e);
+;    res.status(401).json({ message: 'Invalid or expired token' });
   }
 };
 

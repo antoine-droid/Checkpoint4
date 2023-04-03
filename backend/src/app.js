@@ -26,7 +26,7 @@ app.use("/", router);
 app.use(errorHandler);
 
 app.get("*", (req, res) => {
-  res.status(404).json({ message: "Not found !" });
+  res.status(404).json({ message: "Not found hello !" });
 });
 
 module.exports = app;

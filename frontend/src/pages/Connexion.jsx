@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { useRegistrationContext } from "../contexts/RegistrationContext";
 import instanceAxios from "../services/instanceAxios";
 import Email from "../components/Email";
@@ -24,11 +24,10 @@ function Connexion() {
     event.preventDefault();
     if (email && password)
       try {
-        const res = await instanceAxios.post(`/login`, data, response);
+        const res = await instanceAxios.post(`/login`, data);
         const user = { ...res.data, roles: res.data.roles };
-        setResponse(user);
+        setResponse(data.user);
         localStorage.setItem("user", JSON.stringify(user));
-
         if (user.roles === "admin") {
           setIsLoggedIn(true);
           navigate("/admin");

@@ -1,9 +1,12 @@
 const database = require("./index.js");
 
-const findOne = async (userId) => {
+
+
+
+const findOne = async (id) => {
   try {
-    const [user] = await database.query("select * from `user` where id = ?", [
-      userId,
+    const user = await database.query("select * from `user` where id = ?", [
+      id,
     ]);
 
     return user;
@@ -53,38 +56,4 @@ const findAll = async () => {
   }
 };
 
-const AbstractManager = require("./AbstractManager");
-
-class UserManager extends AbstractManager {
-  constructor() {
-    super({ table: "user" });
-  }
-
-update(user) {
-    const sql = [];
-    const data = Object.keys(user).map((elem) => {
-      sql.push(
-        `${elem.replace(/[A-Z]/g, (letter) => `_${letter.toLowerCase()}`)} = ?`
-      );
-      return user[elem];
-    });
-
-    return this.database.query(
-      `update ${this.table} set ${sql.join(",")} where id = ?`,
-      [...data, user.id]
-    );
-  }
-
-
-delete(user) {
-    return this.database.query(`delete from ${this.table} where id = ?`, [
-      user.name,
-      user.email,
-      user.password,
-      user.id,
-    ]);
-  }
-}
-
-
-module.exports = { findOne, addOne, findByEmail, findAll, UserManager };
+module.exports = { findOne, addOne, findByEmail, findAll };

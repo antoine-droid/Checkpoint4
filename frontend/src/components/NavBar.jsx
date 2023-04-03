@@ -12,6 +12,9 @@ const [toggleMenu, setToggleMenu] = useState(false)
   const toggleNav = () => {
     setToggleMenu(!toggleMenu)
   }
+  const closeNav = () => {
+    setToggleMenu(false);
+  };
 
   useEffect(() => {
 
@@ -27,31 +30,69 @@ const [toggleMenu, setToggleMenu] = useState(false)
 
   }, [])
 
-  return (
-  <nav className={styles["nav-bar"]}>
-    {(toggleMenu || screenWidth > 500) && (
-       <ul className={styles["list-uls"]}>
-         <li className={styles["li-list"]}>
-        <NavLink  className={styles["menu-list"]} to="/">Home</NavLink>
-      </li>
-         <li className={styles["li-list"]}>
-        <NavLink className={styles["menu-list"]} to="/registration">Registration</NavLink>
-      </li>
-         <li className={styles["li-list"]}>
-        <NavLink className={styles["menu-list"]} to="/connexion">Connexion</NavLink>
-      </li>
-      <li className={styles["li-list"]}>
-        <NavLink className={styles["menu-list"]} to="/familly">Royal family</NavLink>
-      </li>
-      <li className={styles["li-list"]}>
-        <NavLink className={styles["menu-list"]} to="/kingdom">Kingdom assets</NavLink>
-      </li>
-      <li className={styles["li-list"]}>
-        <NavLink className={styles["menu-list"]} to="/contact">Contact</NavLink>
-      </li>
-    </ul>
-    )}
-    <button onClick={toggleNav} className={styles["nav-btn"]} >Menu</button>
+   return (
+    <nav className={styles['nav-bar']}>
+      {(toggleMenu || screenWidth > 500) && (
+        <ul className={styles['list-uls']}>
+          <li className={styles['li-list']}>
+            <NavLink
+              className={styles['menu-list']}
+              to="/"
+              onClick={closeNav}
+            >
+              Home
+            </NavLink>
+          </li>
+          <li className={styles['li-list']}>
+            <NavLink
+              className={styles['menu-list']}
+              to="/registration"
+              onClick={closeNav}
+            >
+              Registration
+            </NavLink>
+          </li>
+          <li className={styles['li-list']}>
+            <NavLink
+              className={styles['menu-list']}
+              to="/connexion"
+              onClick={closeNav}
+            >
+              Connexion
+            </NavLink>
+          </li>
+          <li className={styles['li-list']}>
+            <NavLink
+              className={styles['menu-list']}
+              to="/familly"
+              onClick={closeNav}
+            >
+              Royal family
+            </NavLink>
+          </li>
+          <li className={styles['li-list']}>
+            <NavLink
+              className={styles['menu-list']}
+              to="/kingdom"
+              onClick={closeNav}
+            >
+              Kingdom assets
+            </NavLink>
+          </li>
+          <li className={styles['li-list']}>
+            <NavLink
+              className={styles['menu-list']}
+              to="/contact"
+              onClick={closeNav}
+            >
+              Contact
+            </NavLink>
+          </li>
+        </ul>
+      )}
+      <button onClick={toggleNav} className={styles['nav-btn']}>
+        Menu
+      </button>
     </nav>
   );
 }

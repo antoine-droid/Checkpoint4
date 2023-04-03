@@ -1,5 +1,4 @@
 const { findOne, addOne, findAll } = require("../models/UserManager.js");
-const models = require("../models");
 const validateUser = require("../validator/user.validator.js");
 const { hashPassword } = require("../helpers/argon.helper.js");
 
@@ -44,48 +43,4 @@ const createOne = async (req, res) => {
   }
 };
 
-const updateUser = (req, res) => {
-  const user = req.body;
-
-  user.id = parseInt(req.params.id, 10);
-
-  models.user
-    .update(user)
-    .then(([result]) => {
-      if (result.affectedRows === 0) {
-        res.sendStatus(404);
-      } else {
-        delete req.user.password;
-        delete req.user.iat;
-        delete req.user.exp;
-
-        const token = encodeJWT({ ...req.user, ...user });
-        res.cookie("auth_token", token, { httpOnly: true, secure: false });
-
-        res.status(204).json({ user });
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
-};
-
-const deleteUser = (req, res) => {
-  models.user
-    .deleteUser(req.params.id)
-    .then(([result]) => {
-      if (result.affectedRows === 0) {
-        res.sendStatus(404);
-      } else {
-        res.sendStatus(204);
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
-};
-
-
-module.exports = { getOne, createOne, browse, updateUser, deleteUser };
+module.exports = { getOne, createOne, browse };

@@ -10,7 +10,7 @@ const {
 const login = async (req, res, next) => {
   try {
     const errors = validateLogin(req.body);
-
+console.log(req.body);
     if (errors) throw new ModelValidationError(errors);
 
     const [user] = await findByEmail(req.body.email);

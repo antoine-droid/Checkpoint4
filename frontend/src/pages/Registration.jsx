@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useRegistrationContext } from "../contexts/RegistrationContext";
+import { useNavigate} from "react-router-dom";
 import { toast } from "react-toastify";
 import instanceAxios from "../services/instanceAxios";
 import styles from "../styles/Registration.module.scss";
@@ -9,6 +10,7 @@ import Email from '../components/Email';
 
 function Registration() {
     const[response, setResponse]=  useState(null);
+    const navigate = useNavigate();
     
 const { email,
       setEmail,
@@ -30,7 +32,7 @@ const { email,
       await instanceAxios.post(`/registration`, data, response);
       setResponse(data);
       navigate("/connexion");
-      toast.success("Welcome Home");
+      toast.success("You are registered");
     } catch (error) {
       console.error(error);
       toast.warning("please pay attention to the provided information");

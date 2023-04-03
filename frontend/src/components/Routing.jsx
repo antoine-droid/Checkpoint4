@@ -7,6 +7,8 @@ import Home from "../pages/Home";
 import Contact from "../pages/Contact";
 import KingdomAssets from "../pages/KingdomAssets";
 import RoyalFamilly from "../pages/RoyalFamilly";
+import Connexion from "../pages/Connexion";
+import Registration from "../pages/Registration";
 import NavBar from '../components/NavBar';
 
 function Routing() {

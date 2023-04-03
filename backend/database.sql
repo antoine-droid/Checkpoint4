@@ -4,8 +4,8 @@
 -- ------------------------------------------------------
 -- Server version	8.0.32
 
-CREATE SCHEMA IF NOT EXISTS `testcheck` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci ;
-USE `testcheck` ;
+CREATE SCHEMA IF NOT EXISTS `checkpoint4` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci ;
+USE `checkpoint4` ;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;

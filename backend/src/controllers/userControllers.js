@@ -1,4 +1,4 @@
-const { findOne, addOne, findAll } = require("../models/UserManager.js");
+const { findOne, addOne, findAll, updateUser, deleteUser } = require("../models/UserManager.js");
 const validateUser = require("../validator/user.validator.js");
 const { hashPassword } = require("../helpers/argon.helper.js");
 
@@ -43,4 +43,34 @@ const createOne = async (req, res) => {
   }
 };
 
-module.exports = { getOne, createOne, browse };
+const updateOneUser = async (req, res) => {
+  try {
+    const userId = parseInt(req.params.id);
+    const { newName, newEmail } = req.body;
+
+    if (isNaN(userId)) throw new Error();
+
+   const result = await updateUser(userId, newName, newEmail);
+
+    res.status(201).send(result);
+  } catch (e) {
+    res.sendStatus(500);
+  }
+};
+
+const deleteOneUser = async (req, res) => {
+  try {
+    const userId = parseInt(req.params.id);
+
+    if (isNaN(userId)) throw new Error();
+
+    const result = await deleteUser(userId);
+
+    res.status(201).send(result);
+  } catch (e) {
+    res.status(500).json({error: "Une erreur est survenue lors de la suppression de l'utilisateur."});
+  }
+};
+
+
+module.exports = { getOne, createOne, browse , updateOneUser, deleteOneUser };

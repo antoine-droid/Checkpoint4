@@ -26,8 +26,8 @@ class AssetsManager extends AbstractManager {
 //     );
 //   }
 
-  getAllAssets() {
-  return this.database.query(`SELECT * FROM ${this.table}`);
+  getAllAssets(asset) {
+  return this.database.query(`SELECT * FROM ${this.table}`,[asset.id, asset.name, asset.wort, asset.quantity, asset.image]);
 }
 }
 module.exports = AssetsManager;

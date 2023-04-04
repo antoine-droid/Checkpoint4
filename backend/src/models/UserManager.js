@@ -56,4 +56,31 @@ const findAll = async () => {
   }
 };
 
-module.exports = { findOne, addOne, findByEmail, findAll };
+const updateUser = async (userId, newName, newEmail) => {
+  try {
+    const [result] = await database.query(
+      "UPDATE user SET name = ?, email = ? WHERE id = ?",
+      [newName, newEmail, userId]
+    );
+    return result;
+  } catch (e) {
+    console.log(e);
+    throw new SQLGenericError("🧦");
+  }
+};
+
+const deleteUser = async (user) => {
+  try {
+    const [result] = await database.query("DELETE  FROM user WHERE id = ?", [user]);
+    return result;
+  } catch (e) {
+    console.log(e);
+    throw new SQLGenericError("🧦");
+  }
+};
+
+
+
+
+
+module.exports = { findOne, addOne, findByEmail, findAll, updateUser,deleteUser };

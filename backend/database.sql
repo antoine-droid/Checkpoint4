@@ -51,6 +51,7 @@ INSERT INTO assets VALUES
 --
 -- Dumping data for table `assets`
 --
+ALTER TABLE assets DROP FOREIGN KEY assets_FK;
 
 LOCK TABLES `assets` WRITE;
 /*!40000 ALTER TABLE `assets` DISABLE KEYS */;
@@ -72,7 +73,7 @@ CREATE TABLE `kingdom` (
   CONSTRAINT `kingdom_FK_1` FOREIGN KEY (`id`) REFERENCES `assets` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
+ALTER TABLE `kingdom` DROP FOREIGN KEY `kingdom_FK_1`;
 --
 -- Dumping data for table `kingdom`
 --
@@ -107,7 +108,7 @@ LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
-
+DROP TABLE kingdom;
 --
 -- Dumping routines for database 'testcheck'
 --
@@ -122,4 +123,3 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2023-04-03 11:18:31
-

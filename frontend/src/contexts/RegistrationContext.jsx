@@ -7,12 +7,15 @@ export function RegistrationContextProvider({ children }) {
   const [email, setEmail] = useState(localStorage.getItem("email"));
   const [password, setPassword] = useState("");
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-  const [name, setName] = useState(localStorage.getItem("user"));
+  const [name, setName] = useState(JSON.parse(localStorage.getItem("user")));
    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("user"));
+   const [id, setId] = useState(localStorage.getItem("user"));
+   const [newName , setNewName]= useState(localStorage.getItem(""));
+  const [newEmail , setNewEmail]= useState(localStorage.getItem(""));
  
 
   const values = useMemo(
-    () => ({
+    () => ({newName , setNewName,newEmail , setNewEmail,
       email,
       setEmail,
       password,
@@ -22,9 +25,10 @@ export function RegistrationContextProvider({ children }) {
       name, 
       setName,
       isLoggedIn, 
-      setIsLoggedIn
+      setIsLoggedIn,
+      id, setId
        }),
-       [
+       [newName , setNewName, newEmail , setNewEmail,
       email,
       setEmail,
       password,
@@ -34,7 +38,8 @@ export function RegistrationContextProvider({ children }) {
       name, 
       setName,
       isLoggedIn,
-       setIsLoggedIn
+       setIsLoggedIn,id, setId
+
          ]
   );
     return (

@@ -10,7 +10,7 @@ const {
 const login = async (req, res, next) => {
   try {
     const errors = validateLogin(req.body);
-console.log(req.body);
+//console.log(req.body);
     if (errors) throw new ModelValidationError(errors);
 
     const [user] = await findByEmail(req.body.email);
@@ -30,7 +30,7 @@ console.log(req.body);
 
     res.cookie("auth_token", token, { httpOnly: true, secure: false });
 
-    res.status(200).json({ username: user.name, roles: user.roles });
+    res.status(200).json({ username: user.name, roles: user.roles, email:user.email, id:user.id });
   } catch (e) {
     next(e);
   }

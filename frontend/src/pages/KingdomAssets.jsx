@@ -17,16 +17,19 @@ function KingdomAssets() {
     }
     handleAssets();
   }, []);
+
   return (
-    <div> 
-      <h1 className={styles["kingdom-title"]}>Kingdom Assets</h1>
-       <div>
-      {assets.map((asset) => (
-        <div key={asset.id}>
-          <p>Name: {asset.name}</p>
-          <p>Worth: {asset.worth}</p>
-          <p>Quantity: {asset.quantity}</p>
-          <img src={asset.image} alt={asset.name} />
+    <div className={styles["kingdom-assets-page"]}> 
+      <h1 className={styles["kingdom-title"]}> The Royal Kingdom Assets</h1>
+       <div className={styles["kingdom-assets-container"]}>
+      {assets.map((assets) => (
+        <div className={styles["kingdom-asset-key"]} key={assets.id}>
+          <p className={styles["kingdom-p-1"]}> {assets.name}</p>
+          <p className={styles["kingdom-p-3"]}> Total quantity: {assets.quantity}</p>
+          <p className={styles["kingdom-p-2"]}> Unit worth :{assets.unit_worth} $</p>
+          <p className={styles["kingdom-p-2"]}> Total worth :{assets.total_worth} $</p>
+          
+          <img className={styles["kingdom-asset-img"]} src={assets.image} alt={assets.name} />
         </div>
       ))}
     </div>

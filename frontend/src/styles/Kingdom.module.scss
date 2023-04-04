@@ -1,1 +1,128 @@
 @import "variables";
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$tertiary-color: #3897eb;
+$font-size: 16px;
+
+.kingdom-assets-page {
+    background-color: #edf5f6b7;
+    padding: 10px;
+
+    .kingdom-title {
+        display: flex;
+        justify-content:center;
+        font-size: 5rem;
+        font-weight: bold;
+        color: $primary-color;
+        margin-bottom: 20px;
+    }
+
+    .kingdom-assets-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .kingdom-asset-key {
+        width: 48%;
+        margin-bottom: 2rem;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 20rem;
+        box-shadow: 0 0 5px 10px rgba(92, 173, 231, 0.42);
+        text-align: center;
+
+        &:hover {
+            transform: scale(1.05);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .kingdom-p-1{
+            color:$tertiary-color;
+            font-size: 28px;
+        }
+
+        .kingdom-p-2,
+        .kingdom-p-3 {
+            margin: 10px 0;
+            font-size: $font-size;
+            color: $secondary-color;
+        }
+
+        .kingdom-asset-img {
+            width: 80%;
+            height: 70%;
+            object-fit: cover;
+            border-radius: 18rem;
+            box-shadow: 0 0 5px 5px rgba(92, 173, 231, 0.42);
+            
+        }
+    }
+}
+@media screen and (max-width: 500px) {
+    
+    $primary-color: #007bff;
+        $secondary-color: #6c757d;
+        $tertiary-color: #3897eb;
+        $font-size: 10px;
+
+    .kingdom-assets-page {
+            background-color: #f8f9fa;
+            padding: 10px;
+    
+            .kingdom-title {
+                display: flex;
+                justify-content: center;
+                font-size: 5rem;
+                font-weight: bold;
+                color: $primary-color;
+                margin-bottom: 20px;
+            }
+    
+            .kingdom-assets-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+    
+            .kingdom-asset-key {
+                width: 48%;
+                margin-bottom: 2rem;
+                padding: 10px;
+                background-color: #fff;
+                border: 1px solid #ccc;
+                border-radius: 20rem;
+                box-shadow: 0 0 5px 5px rgba(92, 173, 231, 0.42);
+                text-align: center;
+    
+                &:hover {
+                    transform: scale(1.05);
+                    transition: transform 0.2s ease-in-out;
+                }
+    
+                .kingdom-p-1 {
+                    color: $tertiary-color;
+                    font-size: 14px;
+                }
+    
+                .kingdom-p-2{
+                    margin: 10px 0;
+                        font-size: $font-size;
+                }
+                .kingdom-p-3 {
+                    margin: 10px 0;
+                    font-size: $font-size;
+                    color: $secondary-color;
+                }
+    
+                .kingdom-asset-img {
+                    width: 70%;
+                    height: 60%;
+                    object-fit: cover;
+                    border-radius: 18rem;
+                    box-shadow: 0 0 5px 5px rgba(92, 173, 231, 0.42);
+                }
+            }
+        }
+}

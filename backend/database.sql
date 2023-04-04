@@ -29,7 +29,8 @@ CREATE TABLE `assets` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `quantity` int DEFAULT NULL,
-  `worth` int NOT NULL,
+  `unit_worth` int NOT NULL,
+  `total_worth` int NOT NULL,
   `image` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `assets_FK` FOREIGN KEY (`id`) REFERENCES `kingdom` (`id`)
@@ -37,16 +38,16 @@ CREATE TABLE `assets` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 INSERT INTO assets VALUES
-(1, "Stables", 40, 10000000, "https://image.lexica.art/full_jpg/7b562e01-fd69-415e-b1e3-046868a0b22d"),
-(2, "Castles", 10, 999567640, "https://image.lexica.art/full_jpg/cb61ee9a-a506-48d2-867f-4b6360e33de0"),
-(3, "Guards", 50000, 999999991, "https://image.lexica.art/full_jpg/ed8350f6-6e62-4de0-9ea1-f1c48a778e64"),
-(4, "Wagons", 100, 80004500, "https://image.lexica.art/full_jpg/a74bb53f-95b4-4bed-af95-873b525dc387"),
-(5, "Livestock", 8745, 25000000 ,"https://image.lexica.art/full_jpg/db215163-77e6-4127-9cb7-cee3aaae9154"),
-(6, "Armor", 80000, 7094561, "https://image.lexica.art/full_jpg/2338156e-fd32-41ca-96f8-7f8a59e9a63e"),
-(7, "Canons", 40, 18000000, "https://image.lexica.art/full_jpg/10437ce9-0655-4117-b6da-2154eef3c6b6"),
-(8, "Horses", 15000, 65000000, "https://image.lexica.art/full_jpg/30e22df5-7ddb-422c-91a2-78371ddca9ae"),
-(9, "Ship", 40, 230000000, "https://image.lexica.art/full_jpg/f6d79341-0a0c-47d8-a5ee-bc201710425f"),
-(10, "Farm", 32, 500000, "https://image.lexica.art/full_jpg/619846c9-c6a5-4658-a4d6-88012cdfc049");
+(1, "Stables", 40, 250000, 10000000, "https://image.lexica.art/full_jpg/7b562e01-fd69-415e-b1e3-046868a0b22d"),
+(2, "Castles", 10, 99956764, 999567640, "https://image.lexica.art/full_jpg/cb61ee9a-a506-48d2-867f-4b6360e33de0"),
+(3, "Guards", 50000, 19999, 999999991, "https://image.lexica.art/full_jpg/ed8350f6-6e62-4de0-9ea1-f1c48a778e64"),
+(4, "Wagons", 100, 800045, 80004500, "https://image.lexica.art/full_jpg/a74bb53f-95b4-4bed-af95-873b525dc387"),
+(5, "Livestock", 8745, 2858, 25000000, "https://image.lexica.art/full_jpg/db215163-77e6-4127-9cb7-cee3aaae9154"),
+(6, "Armor", 80000, 88, 7094561, "https://image.lexica.art/full_jpg/2338156e-fd32-41ca-96f8-7f8a59e9a63e"),
+(7, "Canons", 40, 450000, 18000000, "https://image.lexica.art/full_jpg/10437ce9-0655-4117-b6da-2154eef3c6b6"),
+(8, "Horses", 15000, 4333, 65000000, "https://image.lexica.art/full_jpg/30e22df5-7ddb-422c-91a2-78371ddca9ae"),
+(9, "Ship", 40, 5750000, 230000000, "https://image.lexica.art/full_jpg/f6d79341-0a0c-47d8-a5ee-bc201710425f"),
+(10, "Farm", 32, 156225, 500000, "https://image.lexica.art/full_jpg/619846c9-c6a5-4658-a4d6-88012cdfc049");
 
 --
 -- Dumping data for table `assets`

@@ -1,7 +1,8 @@
 
 import React, {useState, useEffect} from 'react';
-import {NavLink} from "react-router-dom"
+import {NavLink} from "react-router-dom";
 import styles from "../styles/NavBar.module.scss";
+import logo from "../assets/logo.png"
 
 
 function NavBar() {
@@ -32,8 +33,10 @@ const [toggleMenu, setToggleMenu] = useState(false)
 
    return (
     <nav className={styles['nav-bar']}>
+      
       {(toggleMenu || screenWidth > 500) && (
         <ul className={styles['list-uls']}>
+          <img src={logo} alt="Logo" className={styles['nav-bar-logo']} />
           <li className={styles['li-list']}>
             <NavLink
               className={styles['menu-list']}

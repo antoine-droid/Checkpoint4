@@ -24,11 +24,14 @@
 
 .home-about {
     margin-top: 2rem;
+    font-style: $title-font ;
     font-size: 2.5rem;
-    color: #ffffff;
+    color: #141265a4;
 }
 
 .home-text {
+    font-style:$title-font ;
+    color: #141265a4;
     margin: 1rem;
     max-width: 65ch;
     text-align: center; 

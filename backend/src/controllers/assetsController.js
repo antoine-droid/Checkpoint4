@@ -1,31 +1,18 @@
-const models = require("../models");
+const { findAssets } = require("../models/AssetsManager.js")
 
 
-const getAllAssets = (req, res) => {
-  models.assets
-    .getAllAssets()
-    .then(([rows]) => {
-      res.send(rows);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
+const browseAssets = async (req, res) => {
+  try {
+    const assets = await findAssets();
+
+    res.send(assets);
+  } catch (e) {console.log(e,"🤡");
+    res.status(500).json({error: "Une erreur est survenue "});
+  }
 };
 
-const browse = (req, res) => {
-  models.assets
-    .findAll()
-    .then(([rows]) => {
-      res.send(rows);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
-};
 
 module.exports = {
-  getAllAssets,
-  browse 
+  
+  browseAssets 
 };

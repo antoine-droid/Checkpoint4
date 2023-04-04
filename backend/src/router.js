@@ -12,15 +12,15 @@ const {
 const { login, logout } = require("./controllers/authController.js");
 const auth = require("./middleware/auth.js");
 const rolesCheck = require("./middleware/rolesCheck.js");
-const assetsController = require("./controllers/assetsController.js")
+const { browseAssets } = require("./controllers/assetsController.js")
 
-
+router.get("/assets", browseAssets);
 
 router.post("/login", login);
 router.get("/logout", logout);
 
 
-router.get("/assets", assetsController.getAllAssets);
+
 
 router.get("/login/profile", login,  browse);
 router.put("/login/profile/:id", updateOneUser);

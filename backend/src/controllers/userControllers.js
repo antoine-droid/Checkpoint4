@@ -52,7 +52,7 @@ const updateOneUser = async (req, res) => {
 
    const result = await updateUser(userId, newName, newEmail);
 
-    res.status(201).send(result);
+    res.status(201).send({newName, newEmail});
   } catch (e) {
     res.sendStatus(500);
   }
